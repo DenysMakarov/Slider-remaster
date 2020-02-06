@@ -5,6 +5,11 @@
   margin-top: 100px;
 }
 
+//.box_1{
+//  width: 2000px;
+//  height: 1000px;
+//}
+
 .slider_wrapper_ms {
   width: 100%;
   height: 100%;
@@ -80,7 +85,7 @@
   position: absolute;
   width: 100%;
   height: 200px;
-  background: rgba(0,0,0, 0.1);
+  background: rgba(0,0,0, 0.5);
   top: 300px;
   transition: 1s;
   opacity: 0;
@@ -88,6 +93,9 @@
   //display: none;
   margin-left: 0px;
 }
+
+
+
 
 /////////// test
 
@@ -146,4 +154,12 @@
     background: grey;
     cursor: pointer;
   }
+}
+
+
+.btn{
+  width: 200px;
+  height: 150px;
+  background: yellow;
+  margin-top: 30px;
 }
