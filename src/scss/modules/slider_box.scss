@@ -1,0 +1,149 @@
+.box, .box_1, .box_2, .box_3 {
+  width: 700px;
+  height: 550px;
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+.slider_wrapper_ms {
+  width: 100%;
+  height: 100%;
+  //border: 1px solid grey;
+  margin: auto;
+  //margin-top: 50px;
+  position: relative;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider_box_ms {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+}
+
+.slider_lines_ms {
+  width: 5%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  //z-index: 1000;
+  -webkit-background-size: 2000% 100%;
+  background-size: 2000% 100%;
+
+  .first_twin_ms{
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+
+  .slider_lines_twin_ms {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    -webkit-background-size: 2000% 100%;
+    background-size: 2000% 100%;
+    margin: 0;
+  }
+  .first_twin_ms {
+    //z-index: 1000 !important;
+    margin-left: 5rem;
+    margin-top: -4rem;
+    opacity: 0;
+    animation-direction: normal;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    //background: green;
+  }
+
+  .second_twin_ms {
+    z-index: 10!important;
+    opacity: 0;
+  }
+}
+
+.background_ms {
+  position: relative;
+}
+
+.desc_ms{
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  background: rgba(0,0,0, 0.1);
+  top: 300px;
+  transition: 1s;
+  opacity: 0;
+  //z-index: 10000000000;
+  //display: none;
+  margin-left: 0px;
+}
+
+/////////// test
+
+
+
+.q{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+.qq{
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background: green;
+  margin-left: 500px;
+}
+
+
+
+
+///////
+//.box {
+//  width: 700px;
+//  height: 500px;
+//  border: 3px solid gray;
+//  position: relative;
+//  box-sizing: border-box;
+//
+//  .img {
+//    background: grey;
+//    position: absolute;
+//    transition: 0.5s;
+//  }
+//}
+
+
+//
+//.centerSlide {
+//  position: relative;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//}
+
+.pagination_ms{
+  width: 500px;
+  height: 50px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: space-around;
+
+  .pug_ms{
+    width: 10%;
+    background: grey;
+    cursor: pointer;
+  }
+}
