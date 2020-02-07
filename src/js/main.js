@@ -83,6 +83,25 @@
             let positionBg = 0;
             let countImage = 0;
 
+//////// ++++++
+//             for (let i = 0; i < this.mainBox.length; i++) {
+//                 this.desc = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.background_ms > div.desc_ms'));
+//                 this.boxS = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
+//                 this.firstSlidesLine = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
+//                 this.secondSlidesLine = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
+//                 this.imgPath = Array.from(document.querySelectorAll('.' + this.elClass + i + '>div.background_ms'));
+//                 let countImg = 0;
+//
+//                 console.log(this.imgPath.length)
+//
+//                 let btn = Array.from(document.getElementsByClassName("btn"))
+//                 btn.map((el) => {
+//                     el.addEventListener("click", function () {
+//                         console.log(el.dataset.n)
+//                         this.firstSlidesLine.style.animationName = "z"
+//                     })
+//                 })
+//             }
 
             /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
 
@@ -127,6 +146,87 @@
                 }
             }
 
+            function playPag(mainBox, elClass, animationOfName) {
+                for (let i = 0; i < mainBox.length; i++) {
+                    let countImg = countImage;
+                    let desc = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.background_ms > div.desc_ms'));
+                    let boxS = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
+                    let firstSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
+                    let secondSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
+                    let imgPath = Array.from(document.querySelectorAll('.' + elClass + i + '>div.background_ms'));
+
+                    let btn = Array.from(document.getElementsByClassName("btn"))
+                    let btnBlock = Array.from(document.getElementsByClassName("btn_cover"))
+
+
+
+                    if (animationOfName == "StepToRight_ms" || animationOfName == "PutToRight_ms" || animationOfName == "CoverToRight_ms") {
+                        lastLine = getComputedStyle(firstSlidesLine[firstSlidesLine.length - 1]).animationDelay;
+                    } else if (animationOfName == "StepToLeft_ms" || animationOfName == "PutToLeft_ms" || animationOfName == "CoverToLeft_ms") {
+                        let lastLine = getComputedStyle(firstSlidesLine[0]).animationDelay;
+                    }
+
+                    timeOfChange = parseInt(lastLine + 1000) * 1000;
+                    (timing) ? timeDefault = timing : timeDefault = 1000;
+                    console.log("...");
+
+                    ///////  create BG Position  /////////////////////////
+                    function f() {
+                        
+                    }
+                    
+                    for (let q = 0; q < firstSlidesLine.length; q++) {
+                        firstSlidesLine[q].style.backgroundPositionX = positionBg + "%";
+                        secondSlidesLine[q].style.backgroundPositionX = positionBg + "%";
+                        positionBg = positionBg + 5.2640;
+                        firstSlidesLine[q].style.zIndex = "1000";
+                    }
+
+                    ////////  create FIRST IMG  //////////////////////////
+                    for (let q = 0; q < firstSlidesLine.length; q++) {
+                        firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                        firstSlidesLine[q].style.animationName = animationOfName;
+                        setTimeout(function () {
+                            boxS[0].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                        }, timeOfChange + timeDefault)
+                    }
+
+                    setTimeout(function () {
+                        btnBlock[0].style.zIndex = 1
+                    }, timeOfChange )
+
+                    btn.map((el) => {
+                        el.addEventListener("click", function () {
+                            countImg = el.dataset.n
+                            btnBlock[0].style.zIndex = 100000
+
+                            for (let q = 0; q < firstSlidesLine.length; q++) {
+                                firstSlidesLine[q].style.opacity = 0;
+                                firstSlidesLine[q].style.animationName = "none";
+
+                                setTimeout(function () {
+                                    firstSlidesLine[q].style.animationName = animationOfName;
+                                    firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                                    }, 100);
+                                setTimeout(function () {
+                                    boxS[0].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                                    btnBlock[0].style.zIndex = 1
+
+                                }, timeOfChange + timeDefault)
+
+
+
+                            }
+                        })
+                    })
+
+                }
+            }
+
+            playPag(this.mainBox, this.elClass, this.animationOfName);
+
+
+
 
             function playS(mainBox, elClass, animationOfName) {
                 for (let i = 0; i < mainBox.length; i++) {
@@ -136,8 +236,7 @@
                     let firstSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
                     let secondSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
                     let imgPath = Array.from(document.querySelectorAll('.' + elClass + i + '>div.background_ms'));
-
-                    let btn = Array.from(document.getElementsByClassName("btn"));
+                    let btn = Array.from(document.getElementsByClassName("btn"))
 
                     if (animationOfName == "StepToRight_ms" || animationOfName == "PutToRight_ms" || animationOfName == "CoverToRight_ms") {
                         lastLine = getComputedStyle(firstSlidesLine[firstSlidesLine.length - 1]).animationDelay;
@@ -196,10 +295,28 @@
                         }
                     }, timeOfChange + timeDefault)
 
+
+                    // btn.map((el) => {
+                    //     el.addEventListener("click", function () {
+                    //         let xCountImg = countImg;
+                    //         for (let q = 0; q < firstSlidesLine.length; q++) {
+                    //             boxS[0].style.backgroundImage = `url(${imgPath[xCountImg].dataset.path_img})`;
+                    //
+                    //             firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                    //             firstSlidesLine[q].style.animationName = animationOfName;
+                    //         }
+                    //         countImg = 3
+                    //         console.log(el.dataset.n)
+                    //
+                    //     })
+                    //
+                    // })
+
                 }
                 return this
             }
-            playS(this.mainBox, this.elClass, this.animationOfName);
+
+            // playS(this.mainBox, this.elClass, this.animationOfName);
 
             animationDirection = "PutToRight";
             speed = 0.2;
