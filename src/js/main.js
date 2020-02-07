@@ -55,7 +55,7 @@
             return this
         },
 
-        pug: function(pug){
+        pug: function (pug) {
             pagination = pug;
             return this
         },
@@ -72,13 +72,16 @@
         },
 
         play: function () {
+
+
+            /////////////////////// +++++++
             let timeDefault;
             let timing = time;
             let lastLine;
             let timeOfChange;
             this.animationDirection = animationDirection;
             let positionBg = 0;
-            // let countImg = 0;
+            let countImage = 0;
 
 
             /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
@@ -124,14 +127,17 @@
                 }
             }
 
+
             function playS(mainBox, elClass, animationOfName) {
                 for (let i = 0; i < mainBox.length; i++) {
-                    let countImg = 0;
+                    let countImg = countImage;
                     let desc = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.background_ms > div.desc_ms'));
                     let boxS = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
                     let firstSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
                     let secondSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
                     let imgPath = Array.from(document.querySelectorAll('.' + elClass + i + '>div.background_ms'));
+
+                    let btn = Array.from(document.getElementsByClassName("btn"));
 
                     if (animationOfName == "StepToRight_ms" || animationOfName == "PutToRight_ms" || animationOfName == "CoverToRight_ms") {
                         lastLine = getComputedStyle(firstSlidesLine[firstSlidesLine.length - 1]).animationDelay;
@@ -146,7 +152,7 @@
                     setTimeout(function () {
                         desc[0].style.opacity = 1
                         desc[0].style.zIndex = 100000000
-                    }, timeOfChange );  //// +700 ???
+                    }, timeOfChange);  //// +700 ???
 
 
                     ///////  create BG Position  /////////////////////////
@@ -193,12 +199,7 @@
                 }
                 return this
             }
-
-            if (pagination == false){
-                playS(this.mainBox, this.elClass, this.animationOfName);
-            }
-            // playS(this.mainBox, this.elClass, this.animationOfName);
-
+            playS(this.mainBox, this.elClass, this.animationOfName);
 
             animationDirection = "PutToRight";
             speed = 0.2;
@@ -209,7 +210,14 @@
 
     };
 
-
+    // let btn = Array.from(document.getElementsByClassName("btn"));
+    // btn[0].addEventListener("click", function () {
+    //     // this.countImage = 1;
+    //     LineSlider.play()
+    //     console.log(this.countImage)
+    //     // playS(this.mainBox, this.elClass, this.animationOfName);
+    //
+    // })
 
 
     window.LineSlider = LineSlider;
@@ -232,8 +240,8 @@ LineSlider.findSlider("box_1")
 //     .animationName("StepToRight")
 //     .play();
 
-LineSlider.findSlider("box")
-//     .time(2000)
-    .speed(0.1)
-    .animationName("StepToRight")
-    .play();
+// LineSlider.findSlider("box")
+// //     .time(2000)
+//     .speed(0.1)
+//     .animationName("StepToRight")
+//     .play();
