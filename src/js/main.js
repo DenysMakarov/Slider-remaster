@@ -83,25 +83,6 @@
             let positionBg = 0;
             let countImage = 0;
 
-//////// ++++++
-//             for (let i = 0; i < this.mainBox.length; i++) {
-//                 this.desc = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.background_ms > div.desc_ms'));
-//                 this.boxS = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
-//                 this.firstSlidesLine = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
-//                 this.secondSlidesLine = Array.from(document.querySelectorAll('.' + this.elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
-//                 this.imgPath = Array.from(document.querySelectorAll('.' + this.elClass + i + '>div.background_ms'));
-//                 let countImg = 0;
-//
-//                 console.log(this.imgPath.length)
-//
-//                 let btn = Array.from(document.getElementsByClassName("btn"))
-//                 btn.map((el) => {
-//                     el.addEventListener("click", function () {
-//                         console.log(el.dataset.n)
-//                         this.firstSlidesLine.style.animationName = "z"
-//                     })
-//                 })
-//             }
 
             /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
 
@@ -148,7 +129,7 @@
 
             function playPag(mainBox, elClass, animationOfName) {
                 for (let i = 0; i < mainBox.length; i++) {
-                    let countImg = countImage;
+                    let countImg = +countImage;
                     let desc = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.background_ms > div.desc_ms'));
                     let boxS = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
                     let firstSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
@@ -157,7 +138,6 @@
 
                     let btn = Array.from(document.getElementsByClassName("btn"))
                     let btnBlock = Array.from(document.getElementsByClassName("btn_cover"))
-
 
 
                     if (animationOfName == "StepToRight_ms" || animationOfName == "PutToRight_ms" || animationOfName == "CoverToRight_ms") {
@@ -171,16 +151,13 @@
                     console.log("...");
 
                     ///////  create BG Position  /////////////////////////
-                    function f() {
-                        
-                    }
-                    
                     for (let q = 0; q < firstSlidesLine.length; q++) {
                         firstSlidesLine[q].style.backgroundPositionX = positionBg + "%";
                         secondSlidesLine[q].style.backgroundPositionX = positionBg + "%";
                         positionBg = positionBg + 5.2640;
                         firstSlidesLine[q].style.zIndex = "1000";
                     }
+
 
                     ////////  create FIRST IMG  //////////////////////////
                     for (let q = 0; q < firstSlidesLine.length; q++) {
@@ -193,39 +170,114 @@
 
                     setTimeout(function () {
                         btnBlock[0].style.zIndex = 1
-                    }, timeOfChange )
+                    }, timeOfChange+ 700);
+
+                    setTimeout(function () {
+                        desc[0].style.opacity = 1
+                        desc[0].style.zIndex = 100000000
+                    }, timeOfChange + 500);  //// +700 ???
+
+
+                    function f(countImg) {
+                        // console.log(btnBlock[0])
+                        // btnBlock[0].style.zIndex = 100000
+                        for (let q = 0; q < firstSlidesLine.length; q++) {
+                            firstSlidesLine[q].style.opacity = 0;
+                            firstSlidesLine[q].style.animationName = "none";
+
+                            setTimeout(function () {
+                                firstSlidesLine[q].style.animationName = animationOfName;
+                                firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                            }, 100);
+                            setTimeout(function () {
+                                boxS[0].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                                // btnBlock[0].style.zIndex = 1000000
+                            }, timeOfChange + timeDefault)
+                        }
+
+
+                        let interval = setInterval(function () {
+                            // console.log(countImg)
+
+                            desc[countImg].style.opacity = 0;
+                            desc[countImg].style.zIndex = 0;
+                            btnBlock[0].style.zIndex = 1000000;
+
+
+
+                            setTimeout(function () {
+                                desc[countImg].style.opacity = 1;
+                                desc[countImg].style.zIndex = 10000000000;
+                                btnBlock[0].style.zIndex = 1
+                            }, timeOfChange + 700);
+
+
+                            for (let i = 0; i < boxS.length; i++) {
+                                boxS[0].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                                for (let q = 0; q < firstSlidesLine.length; q++) {
+                                    firstSlidesLine[q].style.opacity = 0;
+                                    firstSlidesLine[q].style.animationName = "none";
+
+                                    setTimeout(function () {
+                                        firstSlidesLine[q].style.animationName = animationOfName;
+                                        firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                                    }, 100)
+                                }
+                            }
+                            btn.map((el) => {
+                                el.addEventListener("click", function () {
+                                    clearInterval(interval)
+                                })
+                            });
+
+                            countImg += 1;
+
+                            if (countImg == imgPath.length) {
+                                countImg = 0
+                            }
+                        }, timeOfChange + timeDefault)
+                        return this
+                    }
 
                     btn.map((el) => {
                         el.addEventListener("click", function () {
-                            countImg = el.dataset.n
-                            btnBlock[0].style.zIndex = 100000
+                            countImg = +el.dataset.n
+                            // boxS[0].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
+                            // btnBlock[0].style.zIndex = 100000
+                            // f(countImg);
 
-                            for (let q = 0; q < firstSlidesLine.length; q++) {
-                                firstSlidesLine[q].style.opacity = 0;
-                                firstSlidesLine[q].style.animationName = "none";
-
-                                setTimeout(function () {
-                                    firstSlidesLine[q].style.animationName = animationOfName;
-                                    firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
-                                    }, 100);
-                                setTimeout(function () {
-                                    boxS[0].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
-                                    btnBlock[0].style.zIndex = 1
-
-                                }, timeOfChange + timeDefault)
+                            // f(countImg)
 
 
-
-                            }
                         })
-                    })
+                    });
 
+                    f(countImg)
+
+                    // f(countImg, el)
+
+                    // btn.map((el) => {
+                    //     el.addEventListener("click", function () {
+                    //         countImg = el.dataset.n
+                    //         // btnBlock[0].style.zIndex = 100000
+                    //         f(countImg, el);
+                    //     })
+                    // })
+                    // for (let i = 0; i < btn.length; i++) {
+                    //     f(countImg, btn[i]);
+                    //
+                    //     btn[i].addEventListener("click", function () {
+                    //         // clearInterval()
+                    //         console.log(interval);
+                    //         console.log(btn[i].dataset.n)
+                    //         countImg = btn[i].dataset.n
+                    //         f(countImg, btn[i]);
+                    //     })
+                    // }
                 }
             }
 
             playPag(this.mainBox, this.elClass, this.animationOfName);
-
-
 
 
             function playS(mainBox, elClass, animationOfName) {
@@ -266,6 +318,7 @@
                         firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
                         firstSlidesLine[q].style.animationName = animationOfName;
                     }
+
                     setInterval(function () {
                         desc[countImg].style.opacity = 0;
                         desc[countImg].style.zIndex = 0;
@@ -296,21 +349,13 @@
                     }, timeOfChange + timeDefault)
 
 
-                    // btn.map((el) => {
-                    //     el.addEventListener("click", function () {
-                    //         let xCountImg = countImg;
-                    //         for (let q = 0; q < firstSlidesLine.length; q++) {
-                    //             boxS[0].style.backgroundImage = `url(${imgPath[xCountImg].dataset.path_img})`;
-                    //
-                    //             firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImg].dataset.path_img})`;
-                    //             firstSlidesLine[q].style.animationName = animationOfName;
-                    //         }
-                    //         countImg = 3
-                    //         console.log(el.dataset.n)
-                    //
-                    //     })
-                    //
-                    // })
+                    btn.map((el) => {
+                        el.addEventListener("click", function () {
+                            clearInterval(x);
+                            countImg = 4;
+                        })
+
+                    })
 
                 }
                 return this
@@ -344,7 +389,7 @@
 
 
 LineSlider.findSlider("box_1")
-    .time(2000)
+    .time(3000)
     .speed(0.1)
     .animationName("PutToRight")
     //     // .animationName("StepToRight")
@@ -356,7 +401,7 @@ LineSlider.findSlider("box_1")
 //     .speed(0.1)
 //     .animationName("StepToRight")
 //     .play();
-
+//
 // LineSlider.findSlider("box")
 // //     .time(2000)
 //     .speed(0.1)

@@ -19,7 +19,7 @@
       <change beforePath="$PROJECT_DIR$/../MakarovD_Lesson_4/Lesson_4.1/img/Пальмы.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MakarovD_Lesson_4/Lesson_4.1/js/main.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../MakarovD_Lesson_4/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/modules/slider_box.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/modules/slider_box.scss" afterDir="false" />
     </list>
@@ -46,8 +46,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="178" column="21" lean-forward="true" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
+            <state relative-caret-position="364">
+              <caret line="210" column="60" selection-start-line="210" selection-start-column="60" selection-end-line="210" selection-end-column="60" />
+              <folding>
+                <element signature="e#4277#6632#0" />
+                <element signature="e#6697#10754#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/scss/modules/slider_box.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="530">
-              <caret line="178" column="16" selection-start-line="178" selection-start-column="16" selection-end-line="178" selection-end-column="16" />
+              <caret line="178" column="18" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -175,12 +179,12 @@
       <option name="presentableId" value="Default" />
       <updated>1580978800591</updated>
       <workItem from="1580978803106" duration="1272000" />
-      <workItem from="1580983249802" duration="21344000" />
+      <workItem from="1580983249802" duration="29120000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22616000" />
+    <option name="totallyTimeSpent" value="30392000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="837" height="816" extended-state="0" />
@@ -278,14 +282,18 @@
     <entry file="file://$PROJECT_DIR$/src/scss/modules/slider_box.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
-          <caret line="178" column="16" selection-start-line="178" selection-start-column="16" selection-end-line="178" selection-end-column="16" />
+          <caret line="178" column="18" selection-start-line="178" selection-start-column="18" selection-end-line="178" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="178" column="21" lean-forward="true" selection-start-line="178" selection-start-column="21" selection-end-line="178" selection-end-column="21" />
+        <state relative-caret-position="364">
+          <caret line="210" column="60" selection-start-line="210" selection-start-column="60" selection-end-line="210" selection-end-column="60" />
+          <folding>
+            <element signature="e#4277#6632#0" />
+            <element signature="e#6697#10754#0" />
+          </folding>
         </state>
       </provider>
     </entry>
