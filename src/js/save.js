@@ -5,6 +5,7 @@
     let animationDirection = "PutToRight";
     let speed = .2;
     let pagination = false;
+    let countImg = 0;
 
 /////////  TEMPLATE SLIDER BOX  //////////////////////////
     const createSlide = {
@@ -123,7 +124,9 @@
             }
 
 
-                /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
+
+
+            /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
 
             function playPag(mainBox, elClass, animationOfName) {
                 for (let i = 0; i < mainBox.length; i++) {
@@ -177,8 +180,9 @@
 
                     let countImageS;
 
-                    let startPlay = function (countImg) {
+                    let f = function (countImg) {
                         countImageS = +countImg;
+                        // console.log(countImageS)
                         for (let q = 0; q < firstSlidesLine.length; q++) {
                             firstSlidesLine[q].style.opacity = 0;
                             firstSlidesLine[q].style.animationName = "none";
@@ -222,39 +226,22 @@
                         return this
                     };
 
-                    let secondPlay = function (countImg) {
-                        // desc[countImg].style.opacity = 0;
-                        // desc[countImg].style.zIndex = 0;
-                        setTimeout(function () {
-                            desc[countImg].style.opacity = 1
-                            desc[countImg].style.zIndex = 100000000
-                            btnBlock[0].style.zIndex = 1
-
-                        }, timeOfChange + 500);  //// +700 ???
-
-                        startPlay(countImageS)
-                        // console.log(imgPath[countImageS].dataset.path_img)
-                        // boxS[0].style.backgroundImage = `url(${imgPath[countImage].dataset.path_img})`;
-                    };
-
                     btn.map((el) => {
-                        el.addEventListener("click", function (e) {
+                        el.addEventListener("click", function () {
                             clearInterval(interval);
-                            desc[countImageS].style.opacity = 0;
-                            desc[countImageS].style.zIndex = 0;
-                            btnBlock[0].style.zIndex = 1000000;
+                            countImageS = el.dataset.n;
+                            console.log(countImageS)
 
+                            // console.log(imgPath[countImage].dataset.path_img)
 
-                            boxS[0].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
-                            countImageS = e.target.dataset.n;
-
-                            secondPlay(countImageS)
+                            f(countImageS)
+                            boxS[0].style.backgroundImage = `url(${imgPath[countImage].dataset.path_img})`;
 
 
                         })
                     });
 
-                    startPlay(countImage)
+                    f(countImage)
 
                     // f(countImg, el)
 
