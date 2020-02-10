@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da110dba-0d24-4213-b809-edb72afa75c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/save.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Template/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Template/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ToyStore_2/.idea/vcs.xml" afterDir="false" />
@@ -23,6 +22,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/save.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/save.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/modules/keyframes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/modules/keyframes.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/modules/slider_box.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/modules/slider_box.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -39,22 +40,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="-939">
+              <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="230" column="56" selection-start-line="230" selection-start-column="56" selection-end-line="230" selection-end-column="56" />
+            <state relative-caret-position="535">
+              <caret line="235" column="72" selection-start-line="235" selection-start-column="72" selection-end-line="235" selection-end-column="72" />
               <folding>
                 <element signature="e#2855#5210#0" />
-                <element signature="e#8539#11541#0" />
                 <element signature="e#13137#17521#0" />
-                <marker date="1581166332813" expanded="true" signature="10549:10594" ph="..." />
+                <marker date="1581348894908" expanded="true" signature="12714:12759" ph="..." />
               </folding>
             </state>
           </provider>
@@ -63,11 +63,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/js/save.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="203" column="47" selection-start-line="203" selection-end-line="204" />
+            <state relative-caret-position="510">
+              <caret line="445" column="15" selection-start-line="445" selection-start-column="15" selection-end-line="445" selection-end-column="15" />
               <folding>
-                <element signature="e#2881#5236#0" />
-                <element signature="e#13138#17522#0" />
+                <element signature="e#3447#5802#0" />
+                <element signature="e#15124#19508#0" />
               </folding>
             </state>
           </provider>
@@ -76,17 +76,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/scss/modules/keyframes.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3977">
-              <caret line="222" column="1" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="1" />
+            <state relative-caret-position="184">
+              <caret line="214" column="19" selection-start-line="214" selection-start-column="19" selection-end-line="214" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/scss/modules/slider_box.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="178" column="12" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
+            <state relative-caret-position="368">
+              <caret line="148" column="25" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -115,11 +115,13 @@
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/js/postcss.config.js" />
         <option value="$PROJECT_DIR$/src/scss/main.scss" />
+        <option value="$PROJECT_DIR$/src/js/save.js" />
+        <option value="$PROJECT_DIR$/dist/lib.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/dist/app.css" />
+        <option value="$PROJECT_DIR$/src/js/main.js" />
         <option value="$PROJECT_DIR$/src/scss/modules/keyframes.scss" />
         <option value="$PROJECT_DIR$/src/scss/modules/slider_box.scss" />
-        <option value="$PROJECT_DIR$/src/js/save.js" />
-        <option value="$PROJECT_DIR$/src/index.html" />
-        <option value="$PROJECT_DIR$/src/js/main.js" />
       </list>
     </option>
   </component>
@@ -145,26 +147,7 @@
             <path>
               <item name="Slider" type="b2602c69:ProjectViewProjectNode" />
               <item name="Slider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Slider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Slider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Slider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Slider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Slider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Slider" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -203,12 +186,12 @@
       <option name="presentableId" value="Default" />
       <updated>1580978800591</updated>
       <workItem from="1580978803106" duration="1272000" />
-      <workItem from="1580983249802" duration="39891000" />
+      <workItem from="1580983249802" duration="52341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41163000" />
+    <option name="totallyTimeSpent" value="53613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="837" height="816" extended-state="0" />
@@ -289,48 +272,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss/modules/keyframes.scss">
+    <entry file="file://$PROJECT_DIR$/dist/lib.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3977">
-          <caret line="222" column="1" selection-start-line="222" selection-start-column="1" selection-end-line="222" selection-end-column="1" />
+        <state relative-caret-position="-5760">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss/modules/slider_box.scss">
+    <entry file="file://$PROJECT_DIR$/dist/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="178" column="12" selection-start-line="178" selection-start-column="12" selection-end-line="178" selection-end-column="12" />
+        <state relative-caret-position="8983">
+          <caret line="486" selection-start-line="486" selection-end-line="486" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        <state relative-caret-position="-939">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/save.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="203" column="47" selection-start-line="203" selection-end-line="204" />
+        <state relative-caret-position="510">
+          <caret line="445" column="15" selection-start-line="445" selection-start-column="15" selection-end-line="445" selection-end-column="15" />
           <folding>
-            <element signature="e#2881#5236#0" />
-            <element signature="e#13138#17522#0" />
+            <element signature="e#3447#5802#0" />
+            <element signature="e#15124#19508#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="230" column="56" selection-start-line="230" selection-start-column="56" selection-end-line="230" selection-end-column="56" />
+        <state relative-caret-position="535">
+          <caret line="235" column="72" selection-start-line="235" selection-start-column="72" selection-end-line="235" selection-end-column="72" />
           <folding>
             <element signature="e#2855#5210#0" />
-            <element signature="e#8539#11541#0" />
             <element signature="e#13137#17521#0" />
-            <marker date="1581166332813" expanded="true" signature="10549:10594" ph="..." />
+            <marker date="1581348894908" expanded="true" signature="12714:12759" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scss/modules/keyframes.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="214" column="19" selection-start-line="214" selection-start-column="19" selection-end-line="214" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/scss/modules/slider_box.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="148" column="25" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
         </state>
       </provider>
     </entry>

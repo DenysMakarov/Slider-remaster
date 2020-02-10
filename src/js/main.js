@@ -39,6 +39,20 @@
             return sliderBox
         },
 
+        // createPug: function (slideBox) {
+        //     let pugBox = createSlide.createS("div", "pagination_block_ms");
+        //     let pugBoxCover = createSlide.createS("div", "pagination_block_cover_ms");
+        //     pugBox.appendChild(pugBoxCover);
+        //
+        //     // for (let i = 0; i < slideBox; i++) {
+        //     //     let pugBtn = createSlide.createS("div", "pagination_btn_ms")
+        //     //     pugBox.setAttribute("data-pugnumber", i);
+        //     //     pugBox.appendChild(pugBtn)
+        //     // }
+        //     return pugBox
+        // },
+
+
         time: function (timing) {
             time = timing;
             return this
@@ -123,19 +137,33 @@
             }
 
 
-                /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
+            /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
 
             function playPag(mainBox, elClass, animationOfName) {
                 for (let i = 0; i < mainBox.length; i++) {
+
                     let desc = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.background_ms > div.desc_ms'));
                     let boxS = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
                     let firstSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
                     let secondSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
                     let imgPath = Array.from(document.querySelectorAll('.' + elClass + i + '>div.background_ms'));
 
-                    let btn = Array.from(document.getElementsByClassName("btn"))
-                    let btnBlock = Array.from(document.getElementsByClassName("btn_cover"))
+                    // boxS.appendChild(LineSlider.createPug());
+                    let pugBox = createSlide.createS("div", "pagination_block_ms");
+                    let pugBtnBox = createSlide.createS("div", "pagination_block_btn_ms");
+                    let pugBoxCover = createSlide.createS("div", "pagination_block_cover_ms");
+                    createSlide.addChild(pugBox, [pugBoxCover, pugBtnBox]);
+                    for (let q = 0; q < imgPath.length; q++) {
+                        let pugBtn = createSlide.createS("div", "pagination_btn_ms");
+                        pugBtn.setAttribute("data-pugnumber", q)
+                        pugBtnBox.appendChild(pugBtn)
+                    }
+                    mainBox[i].appendChild(pugBox)
 
+
+                    let btn = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.pagination_block_ms > div.pagination_block_btn_ms > div.pagination_btn_ms'));
+                    let btnBlock = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.pagination_block_ms > div.pagination_block_cover_ms'));
+                    // console.log(btn)
 
                     if (animationOfName == "StepToRight_ms" || animationOfName == "PutToRight_ms" || animationOfName == "CoverToRight_ms") {
                         lastLine = getComputedStyle(firstSlidesLine[firstSlidesLine.length - 1]).animationDelay;
@@ -168,7 +196,10 @@
 
                     setTimeout(function () {
                         btnBlock[0].style.zIndex = 1
-                    }, timeOfChange+ 700);
+                        for (let q = 0; q < btn.length; q++) {
+                            btn[q].style.animationName = "btn_enable_ms"
+                        }
+                    }, timeOfChange + 500);
 
                     setTimeout(function () {
                         desc[0].style.opacity = 1
@@ -186,30 +217,38 @@
                             setTimeout(function () {
                                 firstSlidesLine[q].style.animationName = animationOfName;
                                 firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
-                            }, 100);
+                            }, 50);
                         }
 
                         interval = setInterval(function () {
                             desc[countImageS].style.opacity = 0;
                             desc[countImageS].style.zIndex = 0;
                             btnBlock[0].style.zIndex = 1000000;
+                            for (let c = 0; c < btn.length; c++) {
+                                btn[c].style.animationName = "btn_disable_ms"
+                            }
 
                             setTimeout(function () {
                                 desc[countImageS].style.opacity = 1;
                                 desc[countImageS].style.zIndex = 10000000000;
-                                btnBlock[0].style.zIndex = 1
+                                btnBlock[0].style.zIndex = 1;
+                                for (let c = 0; c < btn.length; c++) {
+                                    btn[c].style.animationName = "btn_enable_ms"
+                                }
                             }, timeOfChange + 700);
 
                             for (let i = 0; i < boxS.length; i++) {
                                 boxS[0].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
                                 for (let q = 0; q < firstSlidesLine.length; q++) {
                                     firstSlidesLine[q].style.opacity = 0;
-                                    firstSlidesLine[q].style.animationName = "none";
+                                    setTimeout(function () {
+                                        firstSlidesLine[q].style.animationName = "none";
+                                    }, 10)
 
                                     setTimeout(function () {
                                         firstSlidesLine[q].style.animationName = animationOfName;
                                         firstSlidesLine[q].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
-                                    }, 100)
+                                    }, 50)
                                 }
                             }
 
@@ -246,7 +285,7 @@
 
 
                             boxS[0].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
-                            countImageS = e.target.dataset.n;
+                            countImageS = e.target.dataset.pugnumber;
 
                             secondPlay(countImageS)
 
@@ -255,27 +294,6 @@
                     });
 
                     startPlay(countImage)
-
-                    // f(countImg, el)
-
-                    // btn.map((el) => {
-                    //     el.addEventListener("click", function () {
-                    //         countImg = el.dataset.n
-                    //         // btnBlock[0].style.zIndex = 100000
-                    //         f(countImg, el);
-                    //     })
-                    // })
-                    // for (let i = 0; i < btn.length; i++) {
-                    //     f(countImg, btn[i]);
-                    //
-                    //     btn[i].addEventListener("click", function () {
-                    //         // clearInterval()
-                    //         console.log(interval);
-                    //         console.log(btn[i].dataset.n)
-                    //         countImg = btn[i].dataset.n
-                    //         f(countImg, btn[i]);
-                    //     })
-                    // }
                 }
             }
 
@@ -374,16 +392,6 @@
 
     };
 
-    // let btn = Array.from(document.getElementsByClassName("btn"));
-    // btn[0].addEventListener("click", function () {
-    //     // this.countImage = 1;
-    //     LineSlider.play()
-    //     console.log(this.countImage)
-    //     // playS(this.mainBox, this.elClass, this.animationOfName);
-    //
-    // })
-
-
     window.LineSlider = LineSlider;
     return window.LineSlider
 
@@ -393,8 +401,8 @@
 LineSlider.findSlider("box_1")
     .time(3000)
     .speed(0.1)
-    .animationName("PutToRight")
-    //     // .animationName("StepToRight")
+    // .animationName("PutToRight")
+    //     .animationName("StepToRight")
     //     .animationName("PutToRight")
     .play();
 
@@ -403,9 +411,9 @@ LineSlider.findSlider("box_1")
 //     .speed(0.1)
 //     .animationName("StepToRight")
 //     .play();
-//
+// // //
 // LineSlider.findSlider("box")
-// //     .time(2000)
+//     .time(3000)
 //     .speed(0.1)
 //     .animationName("StepToRight")
 //     .play();

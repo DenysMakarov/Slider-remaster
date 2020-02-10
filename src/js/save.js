@@ -5,7 +5,6 @@
     let animationDirection = "PutToRight";
     let speed = .2;
     let pagination = false;
-    let countImg = 0;
 
 /////////  TEMPLATE SLIDER BOX  //////////////////////////
     const createSlide = {
@@ -39,6 +38,20 @@
             }
             return sliderBox
         },
+
+        // createPug: function (slideBox) {
+        //     let pugBox = createSlide.createS("div", "pagination_block_ms");
+        //     let pugBoxCover = createSlide.createS("div", "pagination_block_cover_ms");
+        //     pugBox.appendChild(pugBoxCover);
+        //
+        //     // for (let i = 0; i < slideBox; i++) {
+        //     //     let pugBtn = createSlide.createS("div", "pagination_btn_ms")
+        //     //     pugBox.setAttribute("data-pugnumber", i);
+        //     //     pugBox.appendChild(pugBtn)
+        //     // }
+        //     return pugBox
+        // },
+
 
         time: function (timing) {
             time = timing;
@@ -124,21 +137,40 @@
             }
 
 
-
-
             /////  CREATE DIRECTIONS AND ANIMATION`S NAMES /////////
 
             function playPag(mainBox, elClass, animationOfName) {
                 for (let i = 0; i < mainBox.length; i++) {
+
                     let desc = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.background_ms > div.desc_ms'));
                     let boxS = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms'));
                     let firstSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.first_twin_ms'));
                     let secondSlidesLine = Array.from(document.querySelectorAll('.' + elClass + i + ' > div.slider_wrapper_ms > div.slider_box_ms > div.slider_lines_ms > div.second_twin_ms'));
                     let imgPath = Array.from(document.querySelectorAll('.' + elClass + i + '>div.background_ms'));
 
-                    let btn = Array.from(document.getElementsByClassName("btn"))
-                    let btnBlock = Array.from(document.getElementsByClassName("btn_cover"))
+                    // boxS.appendChild(LineSlider.createPug());
+                    let pugBox = createSlide.createS("div", "pagination_block_ms");
+                    let pugBtnBox = createSlide.createS("div", "pagination_block_btn_ms");
+                    let pugBoxCover = createSlide.createS("div", "pagination_block_cover_ms");
+                    createSlide.addChild(pugBox, [pugBoxCover, pugBtnBox]);
+                    for (let q = 0; q < imgPath.length; q++) {
+                        let pugBtn = createSlide.createS("div", "pagination_btn_ms");
+                        pugBtn.setAttribute("data-pugnumber", q)
+                        pugBtnBox.appendChild(pugBtn)
+                    }
+                    mainBox[i].appendChild(pugBox)
+                    //
 
+                    //     // for (let i = 0; i < slideBox; i++) {
+                    //     //     let pugBtn = createSlide.createS("div", "pagination_btn_ms")
+                    //     //     pugBox.setAttribute("data-pugnumber", i);
+                    //     //     pugBox.appendChild(pugBtn)
+                    //     // }
+
+
+                    let btn = Array.from(document.getElementsByClassName("pagination_btn_ms"));
+                    let btnBlock = Array.from(document.getElementsByClassName("pagination_block_cover_ms"));
+                    // console.log(btn)
 
                     if (animationOfName == "StepToRight_ms" || animationOfName == "PutToRight_ms" || animationOfName == "CoverToRight_ms") {
                         lastLine = getComputedStyle(firstSlidesLine[firstSlidesLine.length - 1]).animationDelay;
@@ -171,7 +203,7 @@
 
                     setTimeout(function () {
                         btnBlock[0].style.zIndex = 1
-                    }, timeOfChange+ 700);
+                    }, timeOfChange + 700);
 
                     setTimeout(function () {
                         desc[0].style.opacity = 1
@@ -180,9 +212,8 @@
 
                     let countImageS;
 
-                    let f = function (countImg) {
+                    let startPlay = function (countImg) {
                         countImageS = +countImg;
-                        // console.log(countImageS)
                         for (let q = 0; q < firstSlidesLine.length; q++) {
                             firstSlidesLine[q].style.opacity = 0;
                             firstSlidesLine[q].style.animationName = "none";
@@ -226,22 +257,39 @@
                         return this
                     };
 
+                    let secondPlay = function (countImg) {
+                        // desc[countImg].style.opacity = 0;
+                        // desc[countImg].style.zIndex = 0;
+                        setTimeout(function () {
+                            desc[countImg].style.opacity = 1
+                            desc[countImg].style.zIndex = 100000000
+                            btnBlock[0].style.zIndex = 1
+
+                        }, timeOfChange + 500);  //// +700 ???
+
+                        startPlay(countImageS)
+                        // console.log(imgPath[countImageS].dataset.path_img)
+                        // boxS[0].style.backgroundImage = `url(${imgPath[countImage].dataset.path_img})`;
+                    };
+
                     btn.map((el) => {
-                        el.addEventListener("click", function () {
+                        el.addEventListener("click", function (e) {
                             clearInterval(interval);
-                            countImageS = el.dataset.n;
-                            console.log(countImageS)
+                            desc[countImageS].style.opacity = 0;
+                            desc[countImageS].style.zIndex = 0;
+                            btnBlock[0].style.zIndex = 1000000;
 
-                            // console.log(imgPath[countImage].dataset.path_img)
 
-                            f(countImageS)
-                            boxS[0].style.backgroundImage = `url(${imgPath[countImage].dataset.path_img})`;
+                            boxS[0].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
+                            countImageS = e.target.dataset.pugnumber;
+
+                            secondPlay(countImageS)
 
 
                         })
                     });
 
-                    f(countImage)
+                    startPlay(countImage)
 
                     // f(countImg, el)
 

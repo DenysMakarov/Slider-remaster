@@ -5,11 +5,12 @@
     opacity: 0;
     margin-left: 5rem;
     margin-top: -4rem;
-    //box-shadow: 22px -22px 9px 1px #000000;
 
     -webkit-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     -moz-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+    -o-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+
 
     z-index: 1000;
   }
@@ -30,10 +31,10 @@
     opacity: 0;
     margin-left: -5rem;
     margin-top: -4rem;
-    //box-shadow: 22px -22px 9px 1px #000000;
 
     -webkit-box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     -moz-box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+    -o-box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
 
     z-index: 1000;
@@ -64,7 +65,9 @@
 
     -webkit-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     -moz-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+    -o-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+
   }
 
   1%{
@@ -139,7 +142,9 @@
 
     -webkit-box-shadow: -6rem 5rem 3rem 0.2rem  rgba(0,0,0,0.9);
     -moz-box-shadow: -6rem 5rem 3rem 0.2rem  rgba(0,0,0,0.9);
+    -o-box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+
   }
 
   10%{
@@ -177,7 +182,9 @@
 
     -webkit-box-shadow: -6rem 5rem 3rem 0.2rem  rgba(0,0,0,0.9);
     -moz-box-shadow: -6rem 5rem 3rem 0.2rem  rgba(0,0,0,0.9);
+    -o-box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
     box-shadow: -6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
+
   }
 
   90%{
@@ -201,23 +208,26 @@
   }
 }
 
-@keyframes mix_ms {
+
+@keyframes btn_enable_ms {
   0%{
-    opacity: 0;
-    margin-left: 5rem;
-    margin-top: -4rem;
-    -webkit-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
-    -moz-box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
-    box-shadow: 6rem 5rem 3rem 0.2rem rgba(0,0,0,0.9);
-    z-index: 1000;
-  }
-  60%{
-    margin-left: 2.3rem;
-    margin-top: 2.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
   }
   100%{
-    margin-left: 0rem;
-    margin-top: 0rem;
-    opacity: 1;
+    width: 1rem;
+    height: 1rem;
   }
 }
+
+@keyframes btn_disable_ms {
+  0%{
+    width: 1rem;
+    height: 1rem;
+  }
+  100%{
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
