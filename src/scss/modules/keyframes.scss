@@ -209,25 +209,3 @@
 }
 
 
-@keyframes btn_enable_ms {
-  0%{
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-  100%{
-    width: 1rem;
-    height: 1rem;
-  }
-}
-
-@keyframes btn_disable_ms {
-  0%{
-    width: 1rem;
-    height: 1rem;
-  }
-  100%{
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-}
-

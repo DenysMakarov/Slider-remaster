@@ -194,10 +194,18 @@
                         }, timeOfChange + timeDefault)
                     }
 
+
+                    btn[0].classList.add("btn_active_ms");
+
                     setTimeout(function () {
                         btnBlock[0].style.zIndex = 1
                         for (let q = 0; q < btn.length; q++) {
-                            btn[q].style.animationName = "btn_enable_ms"
+                            btn[q].classList.remove("btn_disable_ms");
+                            btn[q].classList.add("btn_enable_ms");
+
+                            if (btn[q].dataset.pugnumber == +countImageS) {
+                                btn[countImageS].classList.add("btn_active_ms");
+                            }
                         }
                     }, timeOfChange + 500);
 
@@ -210,6 +218,7 @@
 
                     let startPlay = function (countImg) {
                         countImageS = +countImg;
+
                         for (let q = 0; q < firstSlidesLine.length; q++) {
                             firstSlidesLine[q].style.opacity = 0;
                             firstSlidesLine[q].style.animationName = "none";
@@ -223,17 +232,48 @@
                         interval = setInterval(function () {
                             desc[countImageS].style.opacity = 0;
                             desc[countImageS].style.zIndex = 0;
-                            btnBlock[0].style.zIndex = 1000000;
+                            btnBlock[0].style.zIndex = 1000;
+
                             for (let c = 0; c < btn.length; c++) {
-                                btn[c].style.animationName = "btn_disable_ms"
+                                btn[c].classList.remove("btn_enable_ms");
+                                btn[c].classList.remove("btn_active_ms");
+                                btn[c].classList.add("btn_disable_ms");
+
+                                // if (countImageS < btn.length){
+                                //     if (btn[c].dataset.pugnumber == +countImageS) {
+                                //         btn[countImageS].classList.remove("btn_active_ms");        //// little pug
+                                //         btn[countImageS + 1].classList.add("btn_active_ms");
+                                //     }
+                                // }
+                                //
+                                // else if (countImageS == 2) {
+                                //     btn[c].classList.remove("btn_active_ms");
+                                //     btn[0].classList.add("btn_active_ms");
+                                // }
+                            }
+
+                            if (countImageS < btn.length-1) {
+                                btn[countImageS].classList.remove("btn_active_ms");        //// little pug
+                                btn[countImageS + 1].classList.add("btn_active_ms");
+                            }
+                            if (countImageS == btn.length - 1) {
+                                btn[0].classList.add("btn_active_ms");
                             }
 
                             setTimeout(function () {
                                 desc[countImageS].style.opacity = 1;
                                 desc[countImageS].style.zIndex = 10000000000;
                                 btnBlock[0].style.zIndex = 1;
+
                                 for (let c = 0; c < btn.length; c++) {
-                                    btn[c].style.animationName = "btn_enable_ms"
+                                    btn[c].classList.remove("btn_disable_ms");
+                                    btn[c].classList.remove("btn_active_ms");
+                                    btn[c].classList.add("btn_enable_ms")
+
+                                    if (btn[c].dataset.pugnumber == +countImageS) {  //// big pug
+                                        btn[c].classList.add("btn_active_ms");
+                                    }
+
                                 }
                             }, timeOfChange + 700);
 
@@ -256,7 +296,6 @@
                             if (countImageS == imgPath.length) {
                                 countImageS = 0
                             }
-
                         }, timeOfChange + timeDefault);
                         return this
                     };
@@ -268,6 +307,15 @@
                             desc[countImg].style.opacity = 1
                             desc[countImg].style.zIndex = 100000000
                             btnBlock[0].style.zIndex = 1
+
+                            for (let c = 0; c < btn.length; c++) {
+                                btn[c].classList.remove("btn_disable_ms");
+                                btn[c].classList.remove("btn_active_ms");
+                                btn[c].classList.add("btn_enable_ms");
+                            }
+                            if (btn[countImageS].dataset.pugnumber == countImageS){
+                                btn[countImageS].classList.add("btn_active_ms");
+                            }
 
                         }, timeOfChange + 500);  //// +700 ???
 
@@ -283,6 +331,12 @@
                             desc[countImageS].style.zIndex = 0;
                             btnBlock[0].style.zIndex = 1000000;
 
+                            for (let c = 0; c < btn.length; c++) {
+                                btn[c].classList.remove("btn_enable_ms");
+                                btn[c].classList.remove("btn_active_ms");
+                                btn[c].classList.add("btn_disable_ms")
+                            }
+                            e.target.classList.add("btn_active_ms")
 
                             boxS[0].style.backgroundImage = `url(${imgPath[countImageS].dataset.path_img})`;
                             countImageS = e.target.dataset.pugnumber;
@@ -411,7 +465,7 @@ LineSlider.findSlider("box_1")
 //     .speed(0.1)
 //     .animationName("StepToRight")
 //     .play();
-// // //
+// // // //
 // LineSlider.findSlider("box")
 //     .time(3000)
 //     .speed(0.1)
