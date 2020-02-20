@@ -26,7 +26,7 @@ module.exports = {
                     options: {
                         outputPath: 'img',
                         name: '[name].[ext]',
-                        useRelativePath: true
+                        // useRelativePath: true
                     }
                 },{
                     loader: "image-webpack-loader",
